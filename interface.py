@@ -37,3 +37,12 @@ def tweet(status):
 			print('This tweet is too long!')
 	else:
 		print('This is not a valid status to tweet. Try to be human.')
+
+
+# Send a direct message
+def dm(user, message):
+	if type(user) == str and type(message) == str:
+		if user[0] == '@': user = user[1:]
+		api.send_direct_message(user, None, None, message)
+	else:
+		print('Both username and message must be a text.')
