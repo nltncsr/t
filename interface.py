@@ -46,3 +46,9 @@ def dm(user, message):
 		api.send_direct_message(user, None, None, message)
 	else:
 		print('Both username and message must be a text.')
+
+
+# Reply my last tweet
+def continuing(status):
+	if type(status) == str:
+		api.update_status(status, api.me().status.id)
