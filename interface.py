@@ -52,3 +52,19 @@ def dm(user, message):
 def continuing(status):
 	if type(status) == str:
 		api.update_status(status, api.me().status.id)
+
+
+# Print a number of tweets of a user, default is own user, including theirs id's
+def status(user=myself.screen_name, count=10):
+	if user[0] == '@': user = user[1:]
+
+	tweets = api.user_timeline(screen_name=user, count=count)
+
+	if user == myself.screen_name:
+		print('\n' + myself.name + '\n' + '@' + myself.screen_name + '\n')
+	else:
+		print('\n' + tweets[0].author.name + '\n' + '@' + tweets[0].author.screen_name + '\n')
+
+	for tweet in tweets:
+		print(tweet.text)
+		print('ID: ' + tweet.id_str + '\n\n')
