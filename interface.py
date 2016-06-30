@@ -68,3 +68,8 @@ def status(user=myself.screen_name, count=10):
 	for tweet in tweets:
 		print(tweet.text)
 		print('ID: ' + tweet.id_str + '\n\n')
+
+
+# Delete your own tweet
+def delete(id):
+	api.destroy_status(id)
