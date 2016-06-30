@@ -73,3 +73,9 @@ def status(user=myself.screen_name, count=10):
 # Delete your own tweet
 def delete(id):
 	api.destroy_status(id)
+
+
+# Retweet someone status
+def retweet(id):
+	api.retweet(id)
+
