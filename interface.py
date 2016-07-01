@@ -22,7 +22,7 @@ def get_description():
 
 # Displays tweets from home timeline
 def timeline(count=10):
-	tl = api.home_timeline(None, None, count)
+	tl = api.home_timeline(count=count)
 	for tweet in tl:
 		print('\n@' + tweet.author.screen_name, tweet.author.name)
 		print(tweet.text + '\n\n')
@@ -43,7 +43,7 @@ def tweet(status):
 def dm(user, message):
 	if type(user) == str and type(message) == str:
 		if user[0] == '@': user = user[1:]
-		api.send_direct_message(user, None, None, message)
+		api.send_direct_message(screen_name=user, text=message)
 	else:
 		print('Both username and message must be a text.')
 
